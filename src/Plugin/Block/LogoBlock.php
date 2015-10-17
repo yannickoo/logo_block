@@ -24,46 +24,22 @@ class LogoBlock extends BlockBase {
   /**
    * {@inheritdoc}
    */
-  public function blockForm($form, FormStateInterface $form_state) {
-    $form['linked'] = array(
-      '#type' => 'checkbox',
-      '#title' => $this->t('Link logo'),
-      '#description' => $this->t('Check when logo should be linked.'),
-      '#default_value' => isset($this->configuration['linked']) ? $this->configuration['linked'] : '',
-    );
-
-    return $form;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function blockSubmit($form, FormStateInterface $form_state) {
-    $this->configuration['linked'] = $form_state->getValue('linked');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function build() {
     $theme = \Drupal::theme()->getActiveTheme()->getName();
     $logo = theme_get_setting('logo', $theme);
-    $linked = $this->configuration['linked'];
 
-    $build = [
+    $image = [
       '#theme' => 'image',
       '#uri' => $logo['url'],
     ];
 
-    if ($linked) {
-      $build = [
-        '#type' => 'link',
-        '#title' => \Drupal::service('renderer')->render($build),
-        '#url' => Url::fromRoute('<front>'),
-      ];
-    }
+    $link = [
+      '#type' => 'link',
+      '#title' => \Drupal::service('renderer')->render($image),
+      '#url' => Url::fromRoute('<front>'),
+    ];
 
-    return $build;
+    return $link;
   }
 
 }
