@@ -1,0 +1,14 @@
+{
+  "name": "drupal/logo_block",
+  "type": "drupal-module",
+  "description": "Provides a block for your theme logo.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://github.com/yannickoo/logo_block",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://github.com/yannickoo/logo_block/issues",
+    "source": "https://github.com/yannickoo/logo_block/tree/8.x-1.x"
+  },
+  "require": { }
+}
