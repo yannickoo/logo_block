@@ -1,4 +1,4 @@
 name: Logo Block
 type: module
-description: Provides a block for your theme logo.
+description: 'Provides a block for your theme logo.'
 core: 8.x
